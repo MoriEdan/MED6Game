@@ -3,8 +3,6 @@ using System.Collections;
 
 public class MouseLook : MonoBehaviour {
 
-
-	private float lookSensitivity = 35f;
 	private float yRotation;
 	private float xRotation;
 	private float yRotationV;
@@ -13,7 +11,6 @@ public class MouseLook : MonoBehaviour {
 	// Needed to move player currently
 	private float currentYRotation;
 	private float currentXRotation;
-	private bool isUsingMouse;
 
 	// Use this for initialization
 	void Start () {
@@ -29,7 +26,7 @@ public class MouseLook : MonoBehaviour {
 		yRotation += Input.GetAxis("Mouse X");
 		xRotation -= Input.GetAxis("Mouse Y");
 
-		xRotation = Mathf.Clamp(xRotation, -90f, 90f); // let the player have a 180 degree vertical view
+		xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
 		currentXRotation = Mathf.SmoothDamp(currentXRotation, xRotation, ref xRotationV, lookSmoothDamp);
 		currentYRotation = Mathf.SmoothDamp(currentYRotation, yRotation, ref yRotationV, lookSmoothDamp);
