@@ -76,6 +76,7 @@ Assets/Scripts/ButtonScript.cs
 Assets/Scripts/DoorScript.cs
 Assets/Scripts/Interact.cs
 Assets/Scripts/MouseLook.cs
+Assets/Scripts/Pathfinding.cs
 Assets/Scripts/PlayerMovement.cs
 Assets/Scripts/RayCast.cs
 Assets/Scripts/RaycastInteract.cs
