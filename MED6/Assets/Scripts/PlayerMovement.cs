@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour {
 	public float xStartRotation = 275.0f;
 	private Vector3 startRot;
 
+	public bool Walking;
+
 
 	// Use this for initialization
 	void Start () {
@@ -41,6 +43,12 @@ public class PlayerMovement : MonoBehaviour {
 		//Walking the direction, of the camera
 		moveVector = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
 		rb.transform.Translate(moveVector * speed * Time.deltaTime);
+
+		if (Input.GetAxis ("Horizontal") != 0 || Input.GetAxis ("Vertical") != 0) {
+			Walking = true;
+		} else {
+			Walking = false;
+		}
 	
 	}
 

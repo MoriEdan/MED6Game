@@ -1,36 +1,41 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class RaycastInteract : MonoBehaviour {
+
+	private float interactReach = 2.0f;
 
 	public RaycastHit hit;
 	private GameObject lastLookedAt;
 	Interact currInteractScript;
 	Interact prevInteractScript;
 
-
-	
+	private GameObject[] Buttons;
 	
 	void Start () {
-		
+		Buttons = GameObject.FindGameObjectsWithTag ("Button");
 	}
 	
 	
 	void Update () {
-		Ray ray = Camera.main.ScreenPointToRay (new Vector3 (Screen.width / 2, Screen.height / 2));
+		//Ray ray = Camera.main.ScreenPointToRay (new Vector3 (Screen.width / 2, Screen.height / 2));
 
-		if (Physics.Raycast (ray, out hit, 3) && hit.collider.gameObject.GetComponent<Interact> () != null) {
+		for(int i = 0; i<Buttons.Length;i++){
+			if(Vector3.Angle (Buttons [i].transform.position - transform.position, transform.forward)<30 && 
+				Vector3.Magnitude(Buttons [i].transform.position-transform.position)<interactReach){
 
-			lastLookedAt = hit.collider.gameObject;
-			lastLookedAt.GetComponent<Interact> ().OnLookEnter ();
+				lastLookedAt = Buttons [i];
+				lastLookedAt.GetComponent<Interact> ().OnLookEnter ();
 
-			if (Input.GetKeyDown (KeyCode.E)) {
-				hit.collider.gameObject.GetComponent<Interact> ().interact ();
-			}
-		} else {
-			if (lastLookedAt != null) {
-				lastLookedAt.GetComponent<Interact> ().OnLookExit ();
+				if (Input.GetKeyDown (KeyCode.E)) {
+					Buttons [i].GetComponent<Interact> ().interact ();
+				}
+				} else {
+					if (lastLookedAt != null) {
+						Buttons[i].GetComponent<Interact> ().OnLookExit ();
+					}
+				}
 			}
 		}
 	}
-}
