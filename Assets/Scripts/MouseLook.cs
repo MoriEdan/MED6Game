@@ -12,6 +12,8 @@ public class MouseLook : MonoBehaviour {
 	private float currentYRotation;
 	private float currentXRotation;
 
+	private bool smoothActive = true;
+
 	// Use this for initialization
 	void Start () {
 
@@ -28,8 +30,20 @@ public class MouseLook : MonoBehaviour {
 
 		xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-		currentXRotation = Mathf.SmoothDamp(currentXRotation, xRotation, ref xRotationV, lookSmoothDamp);
-		currentYRotation = Mathf.SmoothDamp(currentYRotation, yRotation, ref yRotationV, lookSmoothDamp);
+		if (Input.GetKeyDown (KeyCode.P)) {
+			smoothActive = !smoothActive;
+		}
+
+		if(smoothActive){
+			currentXRotation = Mathf.SmoothDamp(currentXRotation, xRotation, ref xRotationV, lookSmoothDamp);
+			currentYRotation = Mathf.SmoothDamp(currentYRotation, yRotation, ref yRotationV, lookSmoothDamp);
+		} else {
+			currentXRotation = xRotation;
+			currentYRotation = yRotation;
+		}
+
+
+
 
 		this.transform.rotation = Quaternion.Euler(this.transform.rotation.x + currentXRotation, this.transform.rotation.y + currentYRotation, this.transform.rotation.z);
 	

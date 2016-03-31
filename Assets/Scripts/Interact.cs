@@ -13,7 +13,7 @@ public class Interact : MonoBehaviour {
     void Start()
     {
         rend = GetComponent<Renderer>();
-        rend.material.color = Color.white;
+		rend.material.color = Color.grey;
     }
 
 
@@ -23,7 +23,7 @@ public class Interact : MonoBehaviour {
 	}
 
 	public void OnLookExit(){
-		rend.material.color = Color.white;
+		rend.material.color = Color.grey;
 	}
 
 	public void interact()
