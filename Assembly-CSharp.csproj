@@ -45,15 +45,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\ButtonScript.cs" />
-     <Compile Include="Assets\Scripts\DoorScript.cs" />
-     <Compile Include="Assets\Scripts\FootstepPlayer.cs" />
-     <Compile Include="Assets\Scripts\Interact.cs" />
-     <Compile Include="Assets\Scripts\MouseLook.cs" />
-     <Compile Include="Assets\Scripts\Pathfinding.cs" />
-     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
-     <Compile Include="Assets\Scripts\RayCast.cs" />
-     <Compile Include="Assets\Scripts\RaycastInteract.cs" />
+     <Compile Include="Assets\Scripts\Ander&apos;s Gamle Ting\ButtonScript.cs" />
+     <Compile Include="Assets\Scripts\Ander&apos;s Gamle Ting\DoorScript.cs" />
+     <Compile Include="Assets\Scripts\Ander&apos;s Gamle Ting\FootstepPlayer.cs" />
+     <Compile Include="Assets\Scripts\Ander&apos;s Gamle Ting\Interact.cs" />
+     <Compile Include="Assets\Scripts\Ander&apos;s Gamle Ting\MouseLook.cs" />
+     <Compile Include="Assets\Scripts\Ander&apos;s Gamle Ting\Pathfinding.cs" />
+     <Compile Include="Assets\Scripts\Ander&apos;s Gamle Ting\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Ander&apos;s Gamle Ting\RayCast.cs" />
+     <Compile Include="Assets\Scripts\Ander&apos;s Gamle Ting\RaycastInteract.cs" />
+     <Compile Include="Assets\Scripts\Camera Script.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
