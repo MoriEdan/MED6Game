@@ -5,8 +5,8 @@ public class ButtonScript : MonoBehaviour {
 
 	public bool isActive;
 	public GameObject[] objectsToActivate;
-	private bool allowSendActivation = true;
-	private bool hasPlayed = false;
+	//private bool allowSendActivation = true;
+	//private bool hasPlayed = false;
 	private Animation anima;
 	private Interact interact;
 

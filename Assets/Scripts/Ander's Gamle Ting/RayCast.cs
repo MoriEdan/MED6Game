@@ -10,7 +10,7 @@ public class RayCast : MonoBehaviour {
 	public Transform rayCastObject;
     private float distance = 3f;
     RaycastHit objectHit;
-    private int count = 0;
+    //private int count = 0;
 
     void Start()
     {
