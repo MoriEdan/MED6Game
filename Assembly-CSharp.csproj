@@ -55,8 +55,11 @@
      <Compile Include="Assets\Scripts\Ander&apos;s Gamle Ting\RayCast.cs" />
      <Compile Include="Assets\Scripts\Ander&apos;s Gamle Ting\RaycastInteract.cs" />
      <Compile Include="Assets\Scripts\CameraScript.cs" />
-     <Compile Include="Assets\Scripts\NormalTurretScript.cs" />
+     <Compile Include="Assets\Scripts\CanonBombScrpt.cs" />
      <Compile Include="Assets\Scripts\PlayerScript.cs" />
+     <Compile Include="Assets\Scripts\TurretBaseScript.cs" />
+     <Compile Include="Assets\Scripts\TurretScript.cs" />
+     <Compile Include="Assets\Scripts\TurretShotScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
