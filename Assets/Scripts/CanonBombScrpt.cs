@@ -4,8 +4,6 @@ using System.Collections;
 public class CanonBombScrpt : MonoBehaviour {
 
     private Rigidbody rb;
-    private bool shot;
-    private float speed = 500f;
 
     private float count;
 

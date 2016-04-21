@@ -20,7 +20,7 @@ public class TurretBaseScript : MonoBehaviour {
         if (!isNormalTurret)
             totalPrecision = precision + 10.0f;
 
-        if (Vector3.Angle(this.transform.right, direction) > precision && canRotate)
+        if (Vector3.Angle(this.transform.right, direction) > totalPrecision && canRotate)
         {
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -35,9 +35,7 @@ public class TurretBaseScript : MonoBehaviour {
                 timeCount = 0.0f;
             }
             else
-            {
                 timeCount += Time.deltaTime;
-            }
         }
     }
 
@@ -50,10 +48,9 @@ public class TurretBaseScript : MonoBehaviour {
             store = canonshot;
         GameObject clone = null;
         clone = Instantiate(store, this.transform.position, this.transform.rotation) as GameObject;
+
         if (clone.GetComponent<Rigidbody>() != null)
-        {
             clone.GetComponent<Rigidbody>().AddForce(-clone.transform.right * shootForce);
-        }
         else
             Debug.Log("Instansiated object does not have a rigidbody.");
 

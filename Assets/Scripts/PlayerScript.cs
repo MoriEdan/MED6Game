@@ -27,7 +27,7 @@ public class PlayerScript : MonoBehaviour {
         {
             // Movement
             motion = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
-            rb.transform.Translate(motion * speed * Time.deltaTime);
+            rb.MovePosition(this.transform.position + motion * speed * Time.deltaTime);
 
             // Jump
             if (Physics.Raycast(this.transform.position, -this.transform.up, out hit, 1.0f))

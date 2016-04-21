@@ -5,7 +5,10 @@ public class CameraScript : MonoBehaviour {
 
     private GameObject player;
 
+    public float distance = 10;
+
 	void Start () {
+        distance = -distance;
         if (GameObject.FindGameObjectWithTag("Player") == null)
         {
             Debug.Log("Error: Cannot find a Gameobject with the tag: Player");
@@ -17,6 +20,6 @@ public class CameraScript : MonoBehaviour {
 	}
 
 	void Update () {
-        this.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -10.0f);
+        this.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, distance);
 	}
 }

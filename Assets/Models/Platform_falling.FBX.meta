@@ -1,31 +1,32 @@
 fileFormatVersion: 2
-guid: dbfddcfa4d296a64c9f0ae271f1e0789
-timeCreated: 1461080714
+guid: 3576e9f2fb036ba4e8a52c9c0f519908
+timeCreated: 1461248786
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Canon
-    100002: Cylinder006
-    100004: Gears
-    100006: Stand
-    100008: //RootNode
-    400000: Canon
-    400002: Cylinder006
-    400004: Gears
-    400006: Stand
-    400008: //RootNode
-    2300000: Canon
-    2300002: Cylinder006
-    2300004: Gears
-    2300006: Stand
-    3300000: Canon
-    3300002: Cylinder006
-    3300004: Gears
-    3300006: Stand
-    4300000: Gears
-    4300002: Canon
-    4300004: Stand
+    100000: //RootNode
+    100002: Platform_falling
+    100004: Platform_falling 1
+    100006: Platform_falling 2
+    100008: Platform_falling 3
+    400000: //RootNode
+    400002: Platform_falling
+    400004: Platform_falling 1
+    400006: Platform_falling 2
+    400008: Platform_falling 3
+    2300000: Platform_falling
+    2300002: Platform_falling 1
+    2300004: Platform_falling 2
+    2300006: Platform_falling 3
+    3300000: Platform_falling
+    3300002: Platform_falling 1
+    3300004: Platform_falling 2
+    3300006: Platform_falling 3
+    4300000: Platform_falling
+    4300002: Platform_falling
+    4300004: Platform_falling
+    4300006: Platform_falling
   materials:
     importMaterials: 1
     materialName: 0
