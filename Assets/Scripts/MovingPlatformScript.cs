@@ -13,7 +13,7 @@ public class MovingPlatformScript : MonoBehaviour {
 	void Awake () {
         if (platform.GetComponent<Rigidbody>() == null)
             Debug.Log("Platform is missing a Rigidbody");
-        speed = 1.0f;
+        speed = 2.2f;
         platform.position = startPoint.position;
         SetDestination(endPoint);
 	}

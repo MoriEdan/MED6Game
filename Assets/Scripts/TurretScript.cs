@@ -15,7 +15,7 @@ public class TurretScript : MonoBehaviour {
 
 	void Start () {
         rotationSpeed = 1.5f;
-        precision = 10.0f;
+        precision = 8.0f;
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;

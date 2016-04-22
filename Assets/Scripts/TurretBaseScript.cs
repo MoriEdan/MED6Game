@@ -6,7 +6,7 @@ public class TurretBaseScript : MonoBehaviour {
     public GameObject turretshot;
     public GameObject canonshot;
 
-    public float timer = 0.64f;
+    public float timer = 0.74f;
     private float timeCount;
     private float shootForce = 500f;
     private bool canRotate = true;
@@ -49,10 +49,16 @@ public class TurretBaseScript : MonoBehaviour {
         GameObject clone = null;
         clone = Instantiate(store, this.transform.position, this.transform.rotation) as GameObject;
 
-        if (clone.GetComponent<Rigidbody>() != null)
+        if (clone.GetComponent<Rigidbody>() != null && !state)
             clone.GetComponent<Rigidbody>().AddForce(-clone.transform.right * shootForce);
-        else
+        else if (!state)
             Debug.Log("Instansiated object does not have a rigidbody.");
+        else if (state)
+        {
+            clone.GetComponent<Rigidbody>().AddForce(-clone.transform.right * shootForce);
+            Quaternion q = Quaternion.FromToRotation(-Vector3.right, transform.forward);
+            clone.transform.rotation *= q;
+        }
 
         canRotate = true;
     }

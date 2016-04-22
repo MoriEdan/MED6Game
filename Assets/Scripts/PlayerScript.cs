@@ -16,7 +16,7 @@ public class PlayerScript : MonoBehaviour {
 	
 	void Start () {
         rb = GetComponent<Rigidbody>();
-        speed = 5.4f;
+        speed = 5.9f;
         jumpHeight = 6.7f;
         isAlive = true;
 	}
@@ -27,37 +27,24 @@ public class PlayerScript : MonoBehaviour {
         {
             // Movement
             motion = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
-            rb.MovePosition(this.transform.position + motion * speed * Time.deltaTime);
+            this.rb.MovePosition(this.transform.position + motion * speed * Time.deltaTime);
 
             // Jump
-            if (Physics.Raycast(this.transform.position, -this.transform.up, out hit, 1.0f))
+            if (Physics.Raycast(this.transform.position, -this.transform.up, out hit, 1.3f))
             {
                 if (!isGrounded)
-                {
                     isGrounded = true;
-                }
-                if (isGrounded)
-                {
-                    if (hit.collider.gameObject.tag == "MovingPlatform")
-                    {
-
-                    }
-                }
             }
             else
-            {
                 isGrounded = false;
-            }
 
-            if (Input.GetKey(KeyCode.W) && jumpDuration <= 0.82f)
+            if (Input.GetKey(KeyCode.W) && jumpDuration <= 0.79f)
             {
                 rb.velocity = this.transform.up * jumpHeight;
                 jumpDuration += Time.deltaTime;
             }
             else if (jumpDuration > 0.82f && isGrounded)
-            {
                 jumpDuration = 0.0f;
-            }
         }
 	}
 }

@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scripts\FanScript.cs" />
      <Compile Include="Assets\Scripts\MovingPlatformScript.cs" />
      <Compile Include="Assets\Scripts\PlatformScript.cs" />
+     <Compile Include="Assets\Scripts\PlayerCharacterScript.cs" />
      <Compile Include="Assets\Scripts\PlayerScript.cs" />
      <Compile Include="Assets\Scripts\TurretBaseScript.cs" />
      <Compile Include="Assets\Scripts\TurretScript.cs" />

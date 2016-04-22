@@ -10,13 +10,9 @@ public class CameraScript : MonoBehaviour {
 	void Start () {
         distance = -distance;
         if (GameObject.FindGameObjectWithTag("Player") == null)
-        {
             Debug.Log("Error: Cannot find a Gameobject with the tag: Player");
-        }
         else
-        {
             player = GameObject.FindGameObjectWithTag("Player");
-        }
 	}
 
 	void Update () {
