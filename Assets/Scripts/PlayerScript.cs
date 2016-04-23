@@ -9,6 +9,7 @@ public class PlayerScript : MonoBehaviour {
     private float jumpDuration;
     private float jumpHeight;
     private bool isGrounded;
+    private bool isLeft;
     private Vector3 motion;
     private RaycastHit hit;
 
@@ -29,11 +30,23 @@ public class PlayerScript : MonoBehaviour {
             motion = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
             this.rb.MovePosition(this.transform.position + motion * speed * Time.deltaTime);
 
+            if (Input.GetKeyDown(KeyCode.D) && isLeft)
+            {
+                this.transform.rotation = Quaternion.Euler(Vector3.zero);
+                isLeft = false;
+            }
+            else if (Input.GetKeyDown(KeyCode.A) && !isLeft)
+            {
+                this.transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+                isLeft = true;
+            }
+
             // Jump
             if (Physics.Raycast(this.transform.position, -this.transform.up, out hit, 1.3f))
             {
                 if (!isGrounded)
                     isGrounded = true;
+                Debug.Log(isGrounded);
             }
             else
                 isGrounded = false;
@@ -41,10 +54,13 @@ public class PlayerScript : MonoBehaviour {
             if (Input.GetKey(KeyCode.W) && jumpDuration <= 0.79f)
             {
                 rb.velocity = this.transform.up * jumpHeight;
-                jumpDuration += Time.deltaTime;
+                jumpDuration += 0.0162f;
             }
-            else if (jumpDuration > 0.82f && isGrounded)
+            else if (jumpDuration >= 0.79f && isGrounded)
+            {
+                Debug.Log("resets");
                 jumpDuration = 0.0f;
+            }
         }
 	}
 }
