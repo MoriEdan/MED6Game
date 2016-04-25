@@ -7,6 +7,7 @@ public class FallingPlatformScript : MonoBehaviour {
 
     private float count, delay;
     private bool entered;
+    private RaycastHit hit;
 
 	void Start () {
         rb = GetComponent<Rigidbody>();
@@ -29,13 +30,17 @@ public class FallingPlatformScript : MonoBehaviour {
             else
                 count += Time.deltaTime;
         }
+
+        if (Physics.Raycast(this.transform.position, -this.transform.forward, out hit, 1.5f))
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag == "Player")
         {
-            col.gameObject.transform.parent = this.transform;
             entered = true;
         }
     }
@@ -44,7 +49,6 @@ public class FallingPlatformScript : MonoBehaviour {
     {
         if (col.gameObject.tag == "Player")
         {
-            col.gameObject.transform.parent = null;
             entered = false;
         }
     }

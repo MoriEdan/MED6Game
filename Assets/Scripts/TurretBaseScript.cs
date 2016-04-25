@@ -6,7 +6,7 @@ public class TurretBaseScript : MonoBehaviour {
     public GameObject turretshot;
     public GameObject canonshot;
 
-    public float timer = 0.89f;
+    public float timer = 1.06f;
     private float timeCount;
     private float shootForce = 500f;
     private bool canRotate = true;

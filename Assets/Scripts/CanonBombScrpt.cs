@@ -16,6 +16,11 @@ public class CanonBombScrpt : MonoBehaviour {
         if (count >= 2.21f)
         {
             count = 0.0f;
+            // Emit particle system of explosion!
+            if (Vector3.Distance(this.gameObject.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 2.5f)
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>().isAlive = false;
+            }
             Destroy(this.gameObject);
         }
         else
@@ -23,4 +28,5 @@ public class CanonBombScrpt : MonoBehaviour {
             count += Time.deltaTime;
         }
 	}
+
 }
