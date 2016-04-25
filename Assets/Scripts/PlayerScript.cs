@@ -5,6 +5,8 @@ public class PlayerScript : MonoBehaviour {
 
     public float speed;
     public bool isAlive;
+    [HideInInspector]
+    public Transform spawnPosition;
 
     private float jumpDuration;
     private float jumpHeight;
@@ -16,6 +18,8 @@ public class PlayerScript : MonoBehaviour {
     private Rigidbody rb;
 	
 	void Start () {
+        spawnPosition = GameObject.FindGameObjectWithTag("SpawnPoint").transform;
+        this.transform.position = spawnPosition.position;
         rb = GetComponent<Rigidbody>();
         speed = 5.9f;
         jumpHeight = 6.7f;
@@ -46,7 +50,6 @@ public class PlayerScript : MonoBehaviour {
             {
                 if (!isGrounded)
                     isGrounded = true;
-                Debug.Log(isGrounded);
             }
             else
                 isGrounded = false;
@@ -57,10 +60,13 @@ public class PlayerScript : MonoBehaviour {
                 jumpDuration += 0.0162f;
             }
             else if (jumpDuration >= 0.79f && isGrounded)
-            {
-                Debug.Log("resets");
                 jumpDuration = 0.0f;
-            }
+        }
+        else
+        {
+            spawnPosition = GameObject.FindGameObjectWithTag("SpawnPoint").transform;
+            this.transform.position = spawnPosition.position;
+            isAlive = true;
         }
 	}
 }

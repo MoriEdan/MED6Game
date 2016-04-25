@@ -5,8 +5,8 @@ public class TurretShotScript : MonoBehaviour {
 
     void OnCollisionEnter(Collision col)
     {
-        //Kill player if hit
-        // add here---
+        if (col.gameObject.tag == "Player")
+            col.gameObject.GetComponent<PlayerScript>().isAlive = false;
         Destroy(this.gameObject);
     }
 }
