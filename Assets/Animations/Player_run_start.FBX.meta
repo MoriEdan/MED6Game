@@ -1,0 +1,179 @@
+fileFormatVersion: 2
+guid: 1cf19f31463859845bbad037abd6cd59
+timeCreated: 1461658817
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: AI_Robot
+    100002: Bone019
+    100004: Bone021
+    100006: Bone023
+    100008: Bone026(mirrored)
+    100010: Bone026(mirrored)(mirrored)
+    100012: Bone027(mirrored)
+    100014: Bone027(mirrored)(mirrored)
+    100016: Bone028(mirrored)
+    100018: Bone028(mirrored)(mirrored)
+    100020: Bone029(mirrored)
+    100022: Bone030
+    100024: Bone031
+    100026: Bone032
+    100028: Bone037
+    100030: Bone037(mirrored)
+    100032: Bone038
+    100034: Bone038(mirrored)
+    100036: Bone039
+    100038: Bone039(mirrored)
+    100040: Bone040
+    100042: Bone040(mirrored)
+    100044: Bone041
+    100046: Bone041(mirrored)
+    100048: Bone042
+    100050: Bone042(mirrored)
+    100052: Bone043
+    100054: Bone043(mirrored)
+    100056: Bone044
+    100058: Bone044(mirrored)
+    100060: Bone045
+    100062: Bone045(mirrored)
+    100064: Bone046
+    100066: Bone046(mirrored)
+    100068: Bone047
+    100070: Bone047(mirrored)
+    100072: Bone048
+    100074: Bone049
+    100076: Bone049(mirrored)
+    100078: Bone050
+    100080: Bone050(mirrored)
+    100082: Bone051
+    100084: Bone051(mirrored)
+    100086: Bone052
+    100088: Bone052(mirrored)
+    100090: Bone053
+    100092: Bone054
+    100094: Circle001
+    100096: Circle002
+    100098: Line007
+    100100: Line008
+    100102: //RootNode
+    400000: AI_Robot
+    400002: Bone019
+    400004: Bone021
+    400006: Bone023
+    400008: Bone026(mirrored)
+    400010: Bone026(mirrored)(mirrored)
+    400012: Bone027(mirrored)
+    400014: Bone027(mirrored)(mirrored)
+    400016: Bone028(mirrored)
+    400018: Bone028(mirrored)(mirrored)
+    400020: Bone029(mirrored)
+    400022: Bone030
+    400024: Bone031
+    400026: Bone032
+    400028: Bone037
+    400030: Bone037(mirrored)
+    400032: Bone038
+    400034: Bone038(mirrored)
+    400036: Bone039
+    400038: Bone039(mirrored)
+    400040: Bone040
+    400042: Bone040(mirrored)
+    400044: Bone041
+    400046: Bone041(mirrored)
+    400048: Bone042
+    400050: Bone042(mirrored)
+    400052: Bone043
+    400054: Bone043(mirrored)
+    400056: Bone044
+    400058: Bone044(mirrored)
+    400060: Bone045
+    400062: Bone045(mirrored)
+    400064: Bone046
+    400066: Bone046(mirrored)
+    400068: Bone047
+    400070: Bone047(mirrored)
+    400072: Bone048
+    400074: Bone049
+    400076: Bone049(mirrored)
+    400078: Bone050
+    400080: Bone050(mirrored)
+    400082: Bone051
+    400084: Bone051(mirrored)
+    400086: Bone052
+    400088: Bone052(mirrored)
+    400090: Bone053
+    400092: Bone054
+    400094: Circle001
+    400096: Circle002
+    400098: Line007
+    400100: Line008
+    400102: //RootNode
+    4300000: AI_Robot
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: AI_Robot
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
