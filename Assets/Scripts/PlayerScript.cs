@@ -23,8 +23,8 @@ public class PlayerScript : MonoBehaviour {
 	void Start () {
         spawnPosition = GameObject.FindGameObjectWithTag("SpawnPoint").transform;
         this.transform.position = spawnPosition.position;
-        //this.transform.rotation = Quaternion.Euler(0.0f, 90.0f, 0.0f);
-        this.transform.rotation = Quaternion.Euler(Vector3.zero);
+        this.transform.rotation = Quaternion.Euler(0.0f, 90.0f, 0.0f);
+        //this.transform.rotation = Quaternion.Euler(Vector3.zero);
         rb = GetComponent<Rigidbody>();
         speed = 5.9f;
         jumpHeight = 6.7f;
@@ -93,14 +93,14 @@ public class PlayerScript : MonoBehaviour {
             // Rotation
             if (Input.GetKeyDown(KeyCode.D) && isLeft || Input.GetAxis("PS4_DPadHorizontal") < 0.0f && isLeft)
             {
-                this.transform.rotation = Quaternion.Euler(Vector3.zero);
-                //this.transform.rotation = Quaternion.Euler(0.0f, 90.0f, 0.0f);
+                //this.transform.rotation = Quaternion.Euler(Vector3.zero);
+                this.transform.rotation = Quaternion.Euler(0.0f, 90.0f, 0.0f);
                 isLeft = false;
             }
             else if (Input.GetKeyDown(KeyCode.A) && !isLeft || Input.GetAxis("PS4_DPadHorizontal") > 0.0f && isLeft)
             {
-                //this.transform.rotation = Quaternion.Euler(0.0f, -90.0f, 0.0f);
-                this.transform.rotation = Quaternion.Euler(0.0f, 180f, 0.0f);
+                this.transform.rotation = Quaternion.Euler(0.0f, -90.0f, 0.0f);
+                //this.transform.rotation = Quaternion.Euler(0.0f, 180f, 0.0f);
                 isLeft = true;
             }
         }

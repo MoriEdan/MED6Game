@@ -16,7 +16,7 @@ public class CanonBombScrpt : MonoBehaviour {
 
 	
 	void FixedUpdate () {
-        if (count >= 2.21f && !death)
+        if (count >= 2f && !death)
         {
             
             // Emit particle system of explosion!
@@ -25,7 +25,7 @@ public class CanonBombScrpt : MonoBehaviour {
         }
         else if (death)
         {
-            if (count >= 2.34f)
+            if (count >= 2.13f)
             {
                 count = 0.0f;
                 if (Vector3.Distance(this.gameObject.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 2.8f)

@@ -15,7 +15,7 @@ public class TurretScript : MonoBehaviour {
 
 	void Start () {
         rotationSpeed = 1.5f;
-        precision = 8.0f;
+        precision = 5.0f;
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -25,7 +25,7 @@ public class TurretScript : MonoBehaviour {
 	
 	
 	void FixedUpdate () {
-        if (Vector3.Distance(this.transform.position, player.position) < 13.24f)
+        if (Vector3.Distance(this.transform.position, player.position) < 16.14f)
             TurretBase.TurretAiming(isTurret, player, precision, rotationSpeed);
 
 	}
