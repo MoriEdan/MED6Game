@@ -25,7 +25,7 @@ public class TurretScript : MonoBehaviour {
 	
 	
 	void FixedUpdate () {
-        if (Vector3.Distance(this.transform.position, player.position) < 16.14f)
+        if (Vector3.Distance(this.transform.position, player.position) < 13.14f)
             TurretBase.TurretAiming(isTurret, player, precision, rotationSpeed);
 
 	}
