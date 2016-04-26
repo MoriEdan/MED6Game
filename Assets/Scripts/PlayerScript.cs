@@ -14,7 +14,7 @@ public class PlayerScript : MonoBehaviour {
     private bool isGrounded;
     private bool isLeft;
     private bool canLeft;
-    private bool keyboard;
+    private bool keyboard = true;
     private Vector3 motion;
     private RaycastHit hit, frontHit;
 
