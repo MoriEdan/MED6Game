@@ -33,7 +33,8 @@ public class FallingPlatformScript : MonoBehaviour {
 
         if (Physics.Raycast(this.transform.position, -this.transform.forward, out hit, 1.5f))
         {
-            Destroy(this.gameObject);
+            if(hit.collider.gameObject.tag != "Player")
+                Destroy(this.gameObject);
         }
     }
 

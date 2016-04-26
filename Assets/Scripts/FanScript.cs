@@ -7,7 +7,8 @@ public class FanScript : MonoBehaviour {
     private Transform fan;
 
     private Vector3 direction;
-    private float speed = 2.3f;
+    private float speed = 1.6f;
+
 
     void OnTriggerStay(Collider col)
     {
