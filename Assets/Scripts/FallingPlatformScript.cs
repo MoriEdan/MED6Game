@@ -11,7 +11,7 @@ public class FallingPlatformScript : MonoBehaviour {
 
 	void Start () {
         rb = GetComponent<Rigidbody>();
-        delay = 0.54f;
+        delay = 0.19f;
         if (rb.useGravity)
             rb.useGravity = false;
         if (!rb.isKinematic)

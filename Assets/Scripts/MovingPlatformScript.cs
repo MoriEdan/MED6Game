@@ -8,7 +8,8 @@ public class MovingPlatformScript : MonoBehaviour {
 
     private Transform destination;
     private Vector3 direction;
-    private float speed;
+    [HideInInspector]
+    public  float speed;
 
 	void Awake () {
         if (platform.GetComponent<Rigidbody>() == null)

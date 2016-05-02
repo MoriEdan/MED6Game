@@ -20,6 +20,7 @@ public class PlayerScript : MonoBehaviour {
 
 	public AudioSource jump;
 	public AudioSource idle;
+    public ParticleSystem particle;
 
     private Rigidbody rb;
 	
@@ -70,17 +71,28 @@ public class PlayerScript : MonoBehaviour {
             {
                 rb.velocity = this.transform.up * jumpHeight;
                 jumpDuration += Time.deltaTime;
-				jump.Play();
+                //particle.startSize = 0.35f;
+                if (isGrounded)
+                    jump.Play();
             }
             else if (jumpDuration >= 0.7f && isGrounded)
                 jumpDuration = 0.0f;
+            else
+                //particle.startSize = 0.13f;
 
             // Movement
             if (Input.GetKeyDown(KeyCode.F11))
                 keyboard = !keyboard;
 
             if (keyboard)
-                x = Input.GetAxis("Horizontal");
+            {
+                if (Input.GetKey(KeyCode.A))
+                    x = -1.0f;
+                else if (Input.GetKey(KeyCode.D))
+                    x = 1.0f;
+                else
+                    x = 0.0f;
+            }
             else
                 x = Input.GetAxis("PS4_DPadHorizontal");
             
