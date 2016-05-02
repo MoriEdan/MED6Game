@@ -18,6 +18,9 @@ public class PlayerScript : MonoBehaviour {
     private Vector3 motion;
     private RaycastHit hit, frontHit;
 
+	public AudioSource jump;
+	public AudioSource idle;
+
     private Rigidbody rb;
 	
 	void Start () {
@@ -35,6 +38,7 @@ public class PlayerScript : MonoBehaviour {
 	void Update () {
         if (isAlive)
         {
+
             // Jump
             if (Physics.Raycast(this.transform.position, -this.transform.up, out hit, 1.3f))
             {
@@ -66,6 +70,7 @@ public class PlayerScript : MonoBehaviour {
             {
                 rb.velocity = this.transform.up * jumpHeight;
                 jumpDuration += Time.deltaTime;
+				jump.Play();
             }
             else if (jumpDuration >= 0.7f && isGrounded)
                 jumpDuration = 0.0f;

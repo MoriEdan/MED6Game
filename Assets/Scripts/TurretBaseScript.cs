@@ -11,6 +11,7 @@ public class TurretBaseScript : MonoBehaviour {
     private float shootForce = 500f;
     private bool canRotate = true;
 
+	public AudioSource enemyAttack;
 
     public void TurretAiming(bool isNormalTurret, Transform target, float precision, float rotationSpeed)
     {
@@ -42,15 +43,20 @@ public class TurretBaseScript : MonoBehaviour {
     private void Shoot(bool state)
     {
         GameObject store = null;
-        if (state)
+        if (state){
             store = turretshot;
+			enemyAttack.Play ();
+		}
         else
             store = canonshot;
         GameObject clone = null;
         clone = Instantiate(store, this.transform.position, this.transform.rotation) as GameObject;
 
-        if (clone.GetComponent<Rigidbody>() != null && !state)
+
+
+        if (clone.GetComponent<Rigidbody>() != null && !state){
             clone.GetComponent<Rigidbody>().AddForce(-clone.transform.right * shootForce);
+		}
         else if (!state)
             Debug.Log("Instansiated object does not have a rigidbody.");
         else if (state)
@@ -58,6 +64,7 @@ public class TurretBaseScript : MonoBehaviour {
             clone.GetComponent<Rigidbody>().AddForce(-clone.transform.right * shootForce);
             Quaternion q = Quaternion.FromToRotation(-Vector3.right, transform.forward);
             clone.transform.rotation *= q;
+
         }
 
         canRotate = true;

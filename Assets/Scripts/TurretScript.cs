@@ -11,7 +11,11 @@ public class TurretScript : MonoBehaviour {
     private Vector3 direction;
     private Transform player;
 
+
+
     private TurretBaseScript TurretBase;
+
+
 
 	void Start () {
         rotationSpeed = 1.5f;
@@ -19,6 +23,7 @@ public class TurretScript : MonoBehaviour {
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
+
         }
         TurretBase = GetComponent<TurretBaseScript>();
 	}
