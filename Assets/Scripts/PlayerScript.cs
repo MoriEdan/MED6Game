@@ -50,7 +50,6 @@ public class PlayerScript : MonoBehaviour {
 
 	void SetRunning(bool isRunning){
 		this.isRunning = isRunning;
-
 	}
 
 	void Update () {
@@ -171,9 +170,10 @@ public class PlayerScript : MonoBehaviour {
 		}
 		else
 		{
-			spawnPosition = GameObject.FindGameObjectWithTag("SpawnPoint").transform;
-			this.transform.position = spawnPosition.position;
-			isAlive = true;
+            //spawnPosition = GameObject.FindGameObjectWithTag("SpawnPoint").transform;
+            //this.transform.position = spawnPosition.position;
+            transform.position = GameObject.Find("SpawnPointAdjuster").GetComponent<SpawnPointAdjustmentScript>().SetSpawnPoint();
+            isAlive = true;
 		}
 	}
 

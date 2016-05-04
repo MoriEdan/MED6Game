@@ -7,6 +7,8 @@ public class SpawnPointAdjustmentScript : MonoBehaviour {
 
     private PlayerScript player;
     private bool errorHasOccured;
+    public int minBacktrack;
+    private Vector3 spawn;
 
 	void Awake () {
         if (spawnVectors.Length > 0)
@@ -31,6 +33,7 @@ public class SpawnPointAdjustmentScript : MonoBehaviour {
                 Debug.Log("Fix the error before continuing playing the game.");
         }
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+        spawn = spawnVectors[0].transform.position;
 	}
 
 	void FixedUpdate () {
@@ -48,4 +51,34 @@ public class SpawnPointAdjustmentScript : MonoBehaviour {
             }
         }
 	}
+
+    public Vector3 SetSpawnPoint()
+    {
+        for (int i = 0; i < spawnVectors.Length; i++)
+        {
+            if (spawnVectors[i].GetComponent<SpawnVectorScript>().hasPassed)
+                continue;
+            else
+            {
+                // New spawn point will be set.
+                int ran = (int)Random.Range(minBacktrack, i-1);
+                if (ran == 0)
+                    FindSpawn(spawnVectors[ran].transform.position, spawnVectors[ran + 1].transform.position);
+                else
+                    FindSpawn(spawnVectors[ran].transform.position, spawnVectors[0].transform.position);
+                break;
+            }
+        }
+        return spawn;
+    }
+
+    private void FindSpawn(Vector3 a, Vector3 b)
+    {
+        float _a = (a.y - b.y) / (a.x - b.x);
+        float _b = a.y - _a * a.x;
+        float x = Random.Range(a.x, b.x);
+        float y = _a * x + _b;
+        spawn = new Vector3(x, y, 0.0f);
+        Debug.Log(spawn);
+    }
 }

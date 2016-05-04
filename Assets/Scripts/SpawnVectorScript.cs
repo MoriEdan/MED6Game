@@ -17,12 +17,12 @@ public class SpawnVectorScript : MonoBehaviour {
         {
             if (direction > 0.1f)
             {
-                if (playerObj.transform.position.x >= this.transform.position.x && Vector3.Distance(this.transform.position, playerObj.transform.position) <= 5.0f)
+                if (playerObj.transform.position.x >= this.transform.position.x && Vector3.Distance(this.transform.position, playerObj.transform.position) <= 10.0f)
                     hasPassed = true;
             }
             else if (direction < -0.1f)
             {
-                if (playerObj.transform.position.x >= this.transform.position.x && Vector3.Distance(this.transform.position, playerObj.transform.position) <= 5.0f)
+                if (playerObj.transform.position.x >= this.transform.position.x && Vector3.Distance(this.transform.position, playerObj.transform.position) <= 10.0f)
                     hasPassed = true;
             }
         }
@@ -31,7 +31,7 @@ public class SpawnVectorScript : MonoBehaviour {
     public float Direction(Vector3 a)
     {
         direction = Vector3.Normalize(this.transform.position - a).x;
-        Debug.Log(direction);
+        //Debug.Log(direction);
         return direction;
     }
 }
