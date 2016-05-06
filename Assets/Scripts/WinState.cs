@@ -31,9 +31,12 @@ public class WinState : MonoBehaviour {
 		int imageBGWidth = ClearBG.width;
 		int imageBGHeight = ClearBG.height;
 
+		GUI.DrawTexture(new Rect(Screen.width/2 - imageWidth/2, Screen.height/2 - ImageHeight/2, imageWidth,ImageHeight),Clear);
+
 		if (winState == true) {
+			GUI.DrawTexture(new Rect(Screen.width/2 - imageWidth/2, Screen.height/2 - ImageHeight/2, imageWidth,ImageHeight),Clear);
 			GUI.DrawTexture(new Rect(Screen.width/2 - imageBGWidth/2, Screen.height/2 - imageBGHeight/2, imageBGWidth,imageBGHeight),ClearBG);
-			GUI.DrawTexture(new Rect(Screen.width/2 - imageWidth/2, Screen.height/2 - ImageHeight/2, imageWidth,ImageHeight),ClearBG);
+
 		}
 	}
 

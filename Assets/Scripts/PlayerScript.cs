@@ -26,8 +26,12 @@ public class PlayerScript : MonoBehaviour {
 
 	private Rigidbody rb;
 
-	Rect fuelRect;
-	Texture2D fuelTexture;
+	//Rect fuelRect;
+	//Rect fuelRectBG;
+	//Texture2D fuelTexture;
+	//private Texture fuel_frame;
+	//private Texture fuel_bar;
+	//private Texture fuel_text;
 	public bool isRunning;
 
 	void Start () {
@@ -40,12 +44,19 @@ public class PlayerScript : MonoBehaviour {
 		jumpHeight = 6.7f;
 		isAlive = true;
 
-		fuelRect.y -= fuelRect.height;
+		//fuelRect.y -= fuelRect.height;
 
-		fuelRect = new Rect (Screen.width/10, Screen.height*9/10, Screen.width/3, Screen.height/50);
-		fuelTexture = new Texture2D (1, 1);
-		fuelTexture.SetPixel (0, 0, Color.green);
-		fuelTexture.Apply ();
+		//fuel_bar = Resources.Load ("fuel_bar", typeof(Texture)) as Texture;
+		//fuel_frame = Resources.Load ("fuel_frame", typeof(Texture)) as Texture;
+		//fuel_text = Resources.Load ("fuel_frame", typeof(Texture)) as Texture;
+
+		//fuelRect = new Rect (Screen.width/10, Screen.height*9/10, fuel_bar.width/2, fuel_bar.height/2);
+		//fuelRectBG = new Rect (Screen.width/10, Screen.height*9/10, fuel_frame.width/2, fuel_frame.height/2);
+		//fuelTexture = new Texture2D (1, 1);
+		//fuelTexture.SetPixel (0, 0, Color.green);
+		//fuelTexture.Apply ();
+
+
 	}
 
 	void SetRunning(bool isRunning){
@@ -178,10 +189,11 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void OnGUI(){
-		float fuelRatio = fuel / maxFuel;
-		float fuelRectWidth = fuelRatio*Screen.width / 3;
-		fuelRect.width = fuelRectWidth;
-		GUI.DrawTexture (fuelRect, fuelTexture);
-
+		//Fuel Bar script
+		//float fuelRatio = fuel / maxFuel;
+		//float fuelRectWidth = fuelRatio*fuel_bar.width/2;
+		//fuelRect.width = fuelRectWidth;
+		//GUI.DrawTexture (fuelRect, fuel_bar);
+		//GUI.DrawTexture (fuelRectBG, fuel_frame);
 	}
 }
