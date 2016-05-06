@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Affdex;
 using System.Collections;
 
 public class SpawnPointAdjustmentScript : MonoBehaviour {
@@ -11,6 +12,7 @@ public class SpawnPointAdjustmentScript : MonoBehaviour {
     private Vector3 spawn;
 
 	void Awake () {
+        
         if (spawnVectors.Length > 0)
         {
             for (int i = 0; i < spawnVectors.Length; i++)
