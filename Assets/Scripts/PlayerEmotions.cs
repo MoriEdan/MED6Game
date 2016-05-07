@@ -25,7 +25,7 @@ public class PlayerEmotions : ImageResultsListener
 
     public override void onImageResults(Dictionary<int, Face> faces)
     {
-        Debug.Log("Got face results");
+        //½½½½½½½½½Debug.Log("Got face results");
 
         foreach (KeyValuePair<int, Face> pair in faces)
         {

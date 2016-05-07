@@ -73,10 +73,9 @@ namespace Affdex
 #endif
             }
         }
-
-        void Start()
+/*
+        void Awake()
         {
-            Cam();
             if (!AffdexUnityUtils.ValidPlatform())
                 return;
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
@@ -91,10 +90,10 @@ namespace Affdex
                     webcamTexture.Play();
                 }
             }
-#endif
-        }
+#endif 
+        } */
 
-        IEnumerator Cam()
+        IEnumerator Start()
         {
             yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);
             if (Application.HasUserAuthorization(UserAuthorization.WebCam))
@@ -105,6 +104,17 @@ namespace Affdex
             {
                 Debug.Log("Has not been Authorized");
                 yield return null;
+            }
+            detector = GetComponent<Detector>();
+            devices = WebCamTexture.devices;
+            if (devices.Length > 0)
+            {
+                SelectCamera(isFrontFacing);
+                if (device.name != "Null")
+                {
+                    webcamTexture = new WebCamTexture(device.name, targetWidth, targetHeight, (int)sampleRate);
+                    webcamTexture.Play();
+                }
             }
         }
 
