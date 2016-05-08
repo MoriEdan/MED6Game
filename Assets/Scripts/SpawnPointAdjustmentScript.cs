@@ -5,11 +5,14 @@ using System.Collections;
 public class SpawnPointAdjustmentScript : MonoBehaviour {
 
     public GameObject[] spawnVectors;
-
+    
     private PlayerScript player;
     private bool errorHasOccured;
-    public int minBacktrack;
     private Vector3 spawn;
+
+    private PlayerEmotions playerEmo;
+
+    public int minBacktrack;
 
 	void Awake () {
         
@@ -35,23 +38,8 @@ public class SpawnPointAdjustmentScript : MonoBehaviour {
                 Debug.Log("Fix the error before continuing playing the game.");
         }
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+        playerEmo = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PlayerEmotions>();
         spawn = spawnVectors[0].transform.position;
-	}
-
-	void FixedUpdate () {
-        if (!player.isAlive)
-        {
-            for (int i = 0; i < spawnVectors.Length; i++)
-            {
-                if (spawnVectors[i].GetComponent<SpawnVectorScript>().hasPassed)
-                    continue;
-                else
-                {
-                    // New spawn point will be set.
-                    break;
-                }
-            }
-        }
 	}
 
     public Vector3 SetSpawnPoint()
@@ -63,6 +51,14 @@ public class SpawnPointAdjustmentScript : MonoBehaviour {
             else
             {
                 // New spawn point will be set.
+                //float disgust = playerEmo.currentDisgust;
+                //float anger = playerEmo.currentAnger;
+                //float smile = playerEmo.currentSmile;
+                //float fear = playerEmo.currentFear;
+                //float contempt = playerEmo.currentContempt;
+                //float valence = playerEmo.currentValence;
+                //---- Add more float values if <PlayerEmotions.cs> has more public values ------
+
                 int ran = (int)Random.Range(minBacktrack, i-1);
                 if (ran == 0)
                     FindSpawn(spawnVectors[ran].transform.position, spawnVectors[ran + 1].transform.position);

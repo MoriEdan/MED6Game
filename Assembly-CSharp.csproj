@@ -73,6 +73,7 @@
      <Compile Include="Assets\Scripts\FallingPlatformScript.cs" />
      <Compile Include="Assets\Scripts\FanRotationScript.cs" />
      <Compile Include="Assets\Scripts\FanScript.cs" />
+     <Compile Include="Assets\Scripts\FuelBar.cs" />
      <Compile Include="Assets\Scripts\MovingPlatformScript.cs" />
      <Compile Include="Assets\Scripts\PlatformOfDeathScript.cs" />
      <Compile Include="Assets\Scripts\PlatformScript.cs" />

@@ -7,7 +7,6 @@ public class PlayerScript : MonoBehaviour {
 	CharacterController cc;
 	public float speed;
 	public bool isAlive;
-	[HideInInspector]
 	public Transform spawnPosition;
 
 	private float jumpDuration;
@@ -35,7 +34,6 @@ public class PlayerScript : MonoBehaviour {
 	public bool isRunning;
 
 	void Start () {
-		spawnPosition = GameObject.FindGameObjectWithTag("SpawnPoint").transform;
 		this.transform.position = spawnPosition.position;
 		this.transform.rotation = Quaternion.Euler(0.0f, 90.0f, 0.0f);
 		//this.transform.rotation = Quaternion.Euler(Vector3.zero);
@@ -99,13 +97,11 @@ public class PlayerScript : MonoBehaviour {
 			{
 				rb.velocity = this.transform.up * jumpHeight;
 				jumpDuration += Time.deltaTime;
-				fuel -= Time.deltaTime+0.04f;
+				fuel -= Time.deltaTime + 0.04f;
 
 				if(fuel < 0){
 					fuel = 0;
 				}
-
-
 				//particle.startSize = 0.35f;
 				if (isGrounded)
 					jump.Play();
@@ -114,16 +110,12 @@ public class PlayerScript : MonoBehaviour {
 				fuel = maxFuel;
 
 			}
-
 			else if (jumpDuration >= 0.7f && isGrounded){
 				jumpDuration = 0.0f;
 
 			}
-
-
 			else
 				//particle.startSize = 0.13f;
-
 				// Movement
 				if (Input.GetKeyDown(KeyCode.F11))
 					keyboard = !keyboard;
@@ -134,20 +126,16 @@ public class PlayerScript : MonoBehaviour {
 					x = -1.0f;
 					SetRunning (true);
 				}
-
 				else if (Input.GetKeyUp(KeyCode.A)){
 					SetRunning (false);
 				}
-
 				else if (Input.GetKey(KeyCode.D)){
 					x = 1.0f;
 					SetRunning (true);
 				}
-
 				else if (Input.GetKeyUp(KeyCode.D)){
 					SetRunning (false);
 				}
-
 				else
 					x = 0.0f;
 			}
@@ -181,8 +169,6 @@ public class PlayerScript : MonoBehaviour {
 		}
 		else
 		{
-            //spawnPosition = GameObject.FindGameObjectWithTag("SpawnPoint").transform;
-            //this.transform.position = spawnPosition.position;
             transform.position = GameObject.Find("SpawnPointAdjuster").GetComponent<SpawnPointAdjustmentScript>().SetSpawnPoint();
             isAlive = true;
 		}

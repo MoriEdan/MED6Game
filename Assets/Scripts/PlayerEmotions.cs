@@ -10,6 +10,7 @@ public class PlayerEmotions : ImageResultsListener
     public float currentValence;
     public float currentAnger;
     public float currentFear;
+    public float currentDisgust;
     public FeaturePoint[] featurePointsList;
 
 
@@ -25,7 +26,7 @@ public class PlayerEmotions : ImageResultsListener
 
     public override void onImageResults(Dictionary<int, Face> faces)
     {
-        //½½½½½½½½½Debug.Log("Got face results");
+        //Debug.Log("Got face results");
 
         foreach (KeyValuePair<int, Face> pair in faces)
         {
@@ -37,8 +38,8 @@ public class PlayerEmotions : ImageResultsListener
             face.Emotions.TryGetValue(Emotions.Valence, out currentValence);
             face.Emotions.TryGetValue(Emotions.Anger, out currentAnger);
             face.Emotions.TryGetValue(Emotions.Fear, out currentFear);
-
-            //Retrieve the Smile Score
+            face.Emotions.TryGetValue(Emotions.Disgust, out currentDisgust);
+            //Retrive the Expressions Scores
             face.Expressions.TryGetValue(Expressions.Smile, out currentSmile);
 
 
