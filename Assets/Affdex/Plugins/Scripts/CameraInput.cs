@@ -44,6 +44,9 @@ namespace Affdex
         /// </summary>
         public int targetHeight = 480;
 
+        // Tells game when to start calculating
+        private WinState winState;
+
         /// <summary>
         /// Web Cam texture
         /// </summary>
@@ -99,6 +102,8 @@ namespace Affdex
             if (Application.HasUserAuthorization(UserAuthorization.WebCam))
             {
                 Debug.Log("Has been Authorized");
+                winState = GameObject.Find("WinArea").GetComponent<WinState>();
+                winState.hasStarted = true;
             }
             else
             {

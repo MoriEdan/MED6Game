@@ -9,13 +9,14 @@ public class PlayerScript : MonoBehaviour {
 	public bool isAlive;
 	public Transform spawnPosition;
 
-	private float jumpDuration;
+    [HideInInspector]
+	public float jumpDuration = 0.7f;
 	private float jumpHeight;
 	private float x;
 	private bool isGrounded;
 	private bool isLeft;
 	private bool canLeft;
-	private bool keyboard = true;
+	private bool keyboard = false;
 	private Vector3 motion;
 	private RaycastHit hit, frontHit;
 
@@ -66,7 +67,7 @@ public class PlayerScript : MonoBehaviour {
 		if (isAlive)
 		{
 
-			// Jump
+			// Jump ------------------------------------------------------------------------
 			if (Physics.Raycast(this.transform.position, -this.transform.up, out hit, 1.3f))
 			{
 				if (!isGrounded && hit.collider.gameObject.tag != "Player")
@@ -93,30 +94,23 @@ public class PlayerScript : MonoBehaviour {
 				canLeft = true;
 			}
 
-			if (Input.GetKey(KeyCode.W) && jumpDuration <= 0.7f || Input.GetButton("PS4_X") && jumpDuration <= 0.7f)
+			if (Input.GetKey(KeyCode.W) && jumpDuration > 0.0f || Input.GetButton("PS4_X") && jumpDuration > 0.0f)
 			{
 				rb.velocity = this.transform.up * jumpHeight;
-				jumpDuration += Time.deltaTime;
-				fuel -= Time.deltaTime + 0.04f;
-
-				if(fuel < 0){
-					fuel = 0;
-				}
+				jumpDuration -= Time.deltaTime;
+				if(jumpDuration < 0.0f)
+					jumpDuration = 0.0f;
 				//particle.startSize = 0.35f;
 				if (isGrounded)
 					jump.Play();
 			}
-			else if(fuel < maxFuel && isGrounded){
-				fuel = maxFuel;
-
-			}
-			else if (jumpDuration >= 0.7f && isGrounded){
-				jumpDuration = 0.0f;
+			else if (jumpDuration >= 0.0f && isGrounded){
+				jumpDuration = 0.7f;
 
 			}
 			else
 				//particle.startSize = 0.13f;
-				// Movement
+				// Movement --------------------------------------------------------------------------------------
 				if (Input.GetKeyDown(KeyCode.F11))
 					keyboard = !keyboard;
 
@@ -153,16 +147,17 @@ public class PlayerScript : MonoBehaviour {
 
 			this.rb.MovePosition(this.transform.position + motion * speed * Time.deltaTime);
 
-			// Rotation
-			if (Input.GetKeyDown(KeyCode.D) && isLeft || Input.GetAxis("PS4_DPadHorizontal") < 0.0f && isLeft)
+			// Rotation -----------------------------------------------------------------------------------------
+			if (Input.GetKeyDown(KeyCode.D) && isLeft || Input.GetAxis("PS4_DPadHorizontal") < -0.1f && isLeft)
 			{
 				//this.transform.rotation = Quaternion.Euler(Vector3.zero);
-				this.transform.rotation = Quaternion.Euler(0.0f, 90.0f, 0.0f);
-				isLeft = false;
-			}
-			else if (Input.GetKeyDown(KeyCode.A) && !isLeft || Input.GetAxis("PS4_DPadHorizontal") > 0.0f && isLeft)
-			{
 				this.transform.rotation = Quaternion.Euler(0.0f, -90.0f, 0.0f);
+				isLeft = false;
+
+			}
+			else if (Input.GetKeyDown(KeyCode.A) && !isLeft || Input.GetAxis("PS4_DPadHorizontal") > 0.1f && !isLeft)
+			{
+				this.transform.rotation = Quaternion.Euler(0.0f, 90.0f, 0.0f);
 				//this.transform.rotation = Quaternion.Euler(0.0f, 180f, 0.0f);
 				isLeft = true;
 			}

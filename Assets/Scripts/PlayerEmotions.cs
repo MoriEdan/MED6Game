@@ -4,13 +4,7 @@ using System.Collections.Generic;
 
 public class PlayerEmotions : ImageResultsListener
 {
-    public float currentSmile;
-    public float currentInterocularDistance;
-    public float currentContempt;
-    public float currentValence;
     public float currentAnger;
-    public float currentFear;
-    public float currentDisgust;
     public FeaturePoint[] featurePointsList;
 
 
@@ -33,18 +27,7 @@ public class PlayerEmotions : ImageResultsListener
             int FaceId = pair.Key;  // The Face Unique Id.
             Face face = pair.Value;    // Instance of the face class containing emotions, and facial expression values.
 
-            //Retrieve the Emotions Scores
-            face.Emotions.TryGetValue(Emotions.Contempt, out currentContempt);
-            face.Emotions.TryGetValue(Emotions.Valence, out currentValence);
             face.Emotions.TryGetValue(Emotions.Anger, out currentAnger);
-            face.Emotions.TryGetValue(Emotions.Fear, out currentFear);
-            face.Emotions.TryGetValue(Emotions.Disgust, out currentDisgust);
-            //Retrive the Expressions Scores
-            face.Expressions.TryGetValue(Expressions.Smile, out currentSmile);
-
-
-            //Retrieve the Interocular distance, the distance between two outer eye corners.
-            currentInterocularDistance = face.Measurements.interOcularDistance;
 
 
             //Retrieve the coordinates of the facial landmarks (face feature points)

@@ -4,11 +4,16 @@ using System.Collections;
 
 public class SpawnPointAdjustmentScript : MonoBehaviour {
 
-    public GameObject[] spawnVectors;
+    public SpawnVectorScript[] spawnVectors;
     
     private PlayerScript player;
     private bool errorHasOccured;
     private Vector3 spawn;
+    private int lastSpawn = 0;
+    private int meanDiv;
+    private int checkRate;
+    private float adjustedPosition;
+    private float meanAnger;
 
     private PlayerEmotions playerEmo;
 
@@ -31,7 +36,7 @@ public class SpawnPointAdjustmentScript : MonoBehaviour {
             {
                 for (int i = 0; i < spawnVectors.Length - 1; i++)
                 {
-                    spawnVectors[i].GetComponent<SpawnVectorScript>().Direction(spawnVectors[i + 1].transform.position);
+                    spawnVectors[i].Direction(spawnVectors[i + 1].transform.position);
                 }
             }
             else
@@ -42,40 +47,58 @@ public class SpawnPointAdjustmentScript : MonoBehaviour {
         spawn = spawnVectors[0].transform.position;
 	}
 
+    void FixedUpdate()
+    {
+        if (player.isAlive)
+        {
+            meanDiv++;
+            meanAnger += playerEmo.currentAnger;
+        }
+    }
+
     public Vector3 SetSpawnPoint()
     {
-        for (int i = 0; i < spawnVectors.Length; i++)
+        for (int i = lastSpawn; i < spawnVectors.Length; i++)
         {
-            if (spawnVectors[i].GetComponent<SpawnVectorScript>().hasPassed)
+            if (spawnVectors[i].hasPassed)
                 continue;
             else
             {
-                // New spawn point will be set.
-                //float disgust = playerEmo.currentDisgust;
-                //float anger = playerEmo.currentAnger;
-                //float smile = playerEmo.currentSmile;
-                //float fear = playerEmo.currentFear;
-                //float contempt = playerEmo.currentContempt;
-                //float valence = playerEmo.currentValence;
-                //---- Add more float values if <PlayerEmotions.cs> has more public values ------
 
-                int ran = (int)Random.Range(minBacktrack, i-1);
-                if (ran == 0)
-                    FindSpawn(spawnVectors[ran].transform.position, spawnVectors[ran + 1].transform.position);
+                float theMean = meanAnger / meanDiv;
+
+                adjustedPosition = (i - 1) * (theMean / 100f);
+                if ((int)adjustedPosition <= lastSpawn)
+                    adjustedPosition = lastSpawn;
+
+                if ((int)adjustedPosition < lastSpawn + 2)
+                {
+                    FindSpawn(spawnVectors[(int)adjustedPosition].transform.position, spawnVectors[(int)adjustedPosition + 1].transform.position);
+                    lastSpawn = (int)adjustedPosition;
+                }
                 else
-                    FindSpawn(spawnVectors[ran].transform.position, spawnVectors[0].transform.position);
+                {
+                    FindSpawn(spawnVectors[(int)adjustedPosition - 1].transform.position, spawnVectors[(int)adjustedPosition].transform.position);
+                    lastSpawn = (int)adjustedPosition - 1;
+                }
                 break;
             }
         }
+        meanDiv = 0;
+        meanAnger = 0.0f;
         return spawn;
     }
 
     private void FindSpawn(Vector3 a, Vector3 b)
     {
-        float _a = (a.y - b.y) / (a.x - b.x);
-        float _b = a.y - _a * a.x;
+        //float _a = (a.y - b.y) / (a.x - b.x);
+        //float _b = a.y - _a * a.x;
         float x = Random.Range(a.x, b.x);
-        float y = _a * x + _b;
+        float y = 0.0f;
+        if (a.y > b.y)
+            y = a.y;
+        else
+            y = b.y;
         spawn = new Vector3(x, y, 0.0f);
         Debug.Log(spawn);
     }

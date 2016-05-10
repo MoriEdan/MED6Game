@@ -8,10 +8,11 @@ public class FuelBar : MonoBehaviour {
 	private float fillAmount;
 	[SerializeField]
 	private Image content;
+    private PlayerScript player;
 
 	// Use this for initialization
 	void Start () {
-	
+        player = GameObject.Find("Player").GetComponent<PlayerScript>();
 	}
 	
 	// Update is called once per frame
@@ -20,7 +21,7 @@ public class FuelBar : MonoBehaviour {
 	}
 
 	private void HandleBar (){
-		content.fillAmount = Map(GameObject.Find("Player").GetComponent<PlayerScript>().fuel,0,GameObject.Find("Player").GetComponent<PlayerScript>().maxFuel);
+		content.fillAmount = Map(player.jumpDuration, 0f, 0.7f);
 	}
 
 	private float Map (float value, float inMin, float inMax){
